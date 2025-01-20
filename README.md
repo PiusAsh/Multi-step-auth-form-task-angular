@@ -1,6 +1,19 @@
-# SbscMuiltiStepAuthFormTask
+# SbscMultiStepAuthFormTask
 
+A multi-step authentication form built with Angular CLI. The project implements a user-friendly form with validation, responsive design, and smooth animations.
+
+## Setup & Run Locally
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.7.
+### Prerequisites
+- [Node.js](https://nodejs.org/)
+- [Angular CLI](https://angular.io/cli)
+
+### Steps to setup locally
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/PiusAsh/SbscMultiStepAuthFormTask.git
+   cd SbscMultiStepAuthFormTask
+Install Node module using the following command: npm install
 
 ## Development server
 
@@ -12,48 +25,40 @@ ng serve
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## Code scaffolding
+## Project Structure and Approach
+Folder Structure
+## src/app
+core: Contains global services and essential functionality for the application.
+modules: Houses feature modules, such as authentication.
+services: Manages application-wide services like data and state management. In this case, form state service.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## src/app/modules
+authentication: Contains the authentication workflow, including layout and step components.
 
-```bash
-ng generate component component-name
-```
+## src/app/modules/authentication
+Auth Layout: Manages the overall structure and navigation for the multi-step form.
+Steps Folder: Contains individual steps of the authentication form.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## src/app/modules/authentication/steps
+Key Components
+Account Information: Handles account setup fields (username, email, and password).
+Personal Information: Collects personal details like name, date of birth, and phone number.
+Security Questions: Allows users to select and answer security questions.
+Review: Displays a summary of all entered information for review before submission.
+ 
+## Development Approach
+Step-by-Step Navigation:
+Each step is a separate route managed by Angular Router.
+Navigation between steps is tracked using the AuthLayoutComponent, which listens to NavigationEnd events to update the current step dynamically.
+Form Data Management:
+Centralized State Management: The FormStateService is used to store and manage form data. It uses BehaviorSubject to ensure real-time updates.
+Local Storage: Data is cached in local storage to persist user inputs across browser refreshes.
+Validation:
+Reactive Forms: Each step uses Angular's reactive forms to handle input and validation.
+Dynamic Errors: Validation errors are displayed dynamically using Bootstrap-styled error messages.
+Responsive Design:
+Bootstrap Framework: Ensures the form is fully responsive across all devices.
+Custom Animations: Smooth transitions and effects are implemented using CSS animations to enhance the user experience.
 
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Success Feedback:
+Upon successful form submission the form is reset, a success message is displayed with a "Register Again" button for a new form submission.

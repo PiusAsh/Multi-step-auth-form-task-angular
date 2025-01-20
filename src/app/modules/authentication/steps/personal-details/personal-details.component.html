@@ -48,6 +48,18 @@
           <small *ngIf="form.get('dateOfBirth')?.hasError('required') && form.get('dateOfBirth')?.touched" class="text-sm error-text">
             This field is required
           </small>
+           <small
+            *ngIf="form.get('dateOfBirth')?.hasError('futureDate') && form.get('dateOfBirth')?.touched"
+            class="text-sm error-text"
+          >
+            Date of birth cannot be in the future.
+          </small>
+          <small
+            *ngIf="form.get('dateOfBirth')?.hasError('underage') && form.get('dateOfBirth')?.touched"
+            class="text-sm error-text"
+          >
+            You must be at least 18 years old.
+          </small>
         </div>
       </div>
 
