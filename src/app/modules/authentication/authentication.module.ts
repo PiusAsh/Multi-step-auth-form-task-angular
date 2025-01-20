@@ -7,6 +7,7 @@ import { PersonalDetailsComponent } from './steps/personal-details/personal-deta
 import { SecurityQuestionsComponent } from './steps/security-questions/security-questions.component';
 import { AuthLayoutComponent } from './auth-layout/auth-layout.component';
 import { ReviewDataComponent } from './steps/review-data/review-data.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,6 +20,8 @@ import { ReviewDataComponent } from './steps/review-data/review-data.component';
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     AuthenticationRoutingModule
   ]
 })

@@ -1,1 +1,86 @@
-<p>security-questions works!</p>
+<section class="py-5">
+  <form [formGroup]="form">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="mb-2">
+          <label  for="question1">Security Question 1</label>
+          <select
+            id="question1"
+            formControlName="question1"
+            class="form-control auth-input"
+          >
+            <option value="" disabled selected>Select a question</option>
+            <option *ngFor="let question of securityQuestions" [value]="question">
+              {{ question }}
+            </option>
+          </select>
+          <small *ngIf="form.get('question1')?.hasError('required') && form.get('question1')?.touched" class="text-sm error-text">
+            This field is required
+          </small>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="mb-2">
+          <label  for="answer1">Answer to Security Question 1</label>
+          <input
+            type="text"
+            formControlName="answer1"
+            placeholder="Enter your answer"
+            class="form-control auth-input"
+            id="answer1"
+          />
+          <small *ngIf="form.get('answer1')?.hasError('required') && form.get('answer1')?.touched" class="text-sm error-text">
+            This field is required
+          </small>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="mb-2">
+          <label  for="question2">Security Question 2</label>
+          <select
+            id="question2"
+            formControlName="question2"
+            class="form-control auth-input"
+          >
+            <option value="" disabled selected>Select a question</option>
+            <option *ngFor="let question of securityQuestions" [value]="question">
+              {{ question }}
+            </option>
+          </select>
+          <small *ngIf="form.get('question2')?.hasError('required') && form.get('question2')?.touched" class="text-sm error-text">
+            This field is required
+          </small>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="mb-2">
+          <label  for="answer2">Answer to Security Question 2</label>
+          <input
+            type="text"
+            formControlName="answer2"
+            placeholder="Enter your answer"
+            class="form-control auth-input"
+            id="answer2"
+          />
+          <small *ngIf="form.get('answer2')?.hasError('required') && form.get('answer2')?.touched" class="text-sm error-text">
+            This field is required
+          </small>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="form.hasError('sameQuestions')" class="text-sm error-text text-center mt-4">
+      Security Question 1 and Security Question 2 cannot be the same.
+    </div>
+
+    <div class="navigation-buttons">
+      <button class="btn btn-secondary" (click)="PreviousStep()">Previous</button>
+      <button class="btn btn-primary"  (click)="NextStep()">Next</button>
+    </div>
+  </form>
+</section>

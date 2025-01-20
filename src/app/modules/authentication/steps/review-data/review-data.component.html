@@ -1,1 +1,94 @@
-<p>review-data works!</p>
+<section class="py-5">
+    <div [ngSwitch]="currentTab">
+        <div *ngSwitchCase="'review'">
+            <h3 class="text-center mb-2">Review & Submit</h3>
+  <p class="text-center text-muted mb-2">
+    Please review the information below. You can go back to make corrections if needed.
+  </p>
+
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th>Section</th>
+          <th>Field</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td rowspan="4">Account Info</td>
+          <td>Username</td>
+          <td>{{ userData?.accountInfo?.username }}</td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td>{{ userData?.accountInfo?.email }}</td>
+        </tr>
+        <tr>
+          <td>Password</td>
+          <td>********</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+        </tr>
+    
+
+        <tr>
+          <td rowspan="4">Personal Details</td>
+          <td>First Name</td>
+          <td>{{ userData?.personalDetails?.firstName }}</td>
+        </tr>
+        <tr>
+          <td>Last Name</td>
+          <td>{{ userData?.personalDetails?.lastName }}</td>
+        </tr>
+        <tr>
+          <td>Date of Birth</td>
+          <td>{{ userData?.personalDetails?.dateOfBirth || 'N/A' }}</td>
+        </tr>
+        <tr>
+          <td>Phone Number</td>
+          <td>{{ userData?.personalDetails?.phoneNumber || 'N/A' }}</td>
+        </tr>
+
+        <tr>
+          <td rowspan="4">Security Questions</td>
+          <td>Question 1</td>
+          <td>{{ userData?.securityQuestions?.question1 }}</td>
+        </tr>
+        <tr>
+          <td>Answer 1</td>
+          <td>{{ userData?.securityQuestions?.answer1 }}</td>
+        </tr>
+        <tr>
+          <td>Question 2</td>
+          <td>{{ userData?.securityQuestions?.question2 }}</td>
+        </tr>
+        <tr>
+          <td>Answer 2</td>
+          <td>{{ userData?.securityQuestions?.answer2 }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="navigation-buttons d-flex justify-content-between mt-4">
+    <button class="btn btn-secondary" (click)="PreviousStep()">Back</button>
+    <button class="btn btn-primary" (click)="SubmitForm()">Submit</button>
+  </div>
+        </div>
+        <div *ngSwitchCase="'completed'">
+  <div class="text-center py-5">
+          <h3 class="text-success mb-3">Submitted Successfully!</h3>
+          <p style="font-size: 18px;">Your form has been successfully submitted. Thank you for registering!</p>
+          <button class="btn btn-primary" (click)="registerAgain()">
+            Register Again
+          </button>
+        </div>
+      </div>
+        </div>
+   
+  
+</section>

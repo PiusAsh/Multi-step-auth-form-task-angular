@@ -1,1 +1,44 @@
-<p>auth-layout works!</p>
+<div class="container-fluid main-sec">
+  <div class="py-2 bg-white container-wrapper">
+    <div class="row mt-3">
+      <div class="col-lg-1"></div>
+      <div class="col-lg-10">
+        <div class="right-section ">
+          <div class="">
+             <div class="step-indicator">
+              <ng-container *ngFor="let step of steps; let i = index">
+                <div
+                  class="step"
+                  [ngClass]="{
+                    active: currentStep === i + 1,
+                    completed: currentStep > i + 1
+                  }"
+                >
+                  <div class="circle">{{ i + 1 }}</div>
+                  <span class="label">{{ step.label }}</span>
+                </div>
+                <div
+                  class="line"
+                  *ngIf="i < steps.length - 1"
+                  [ngClass]="{ completed: currentStep > i + 1 }"
+                ></div>
+              </ng-container>
+            </div>
+          
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-1"></div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+            <router-outlet></router-outlet>
+        </div>
+        <div class="col-lg-3"></div>
+    </div>
+  </div>
+</div>

@@ -1,1 +1,78 @@
-<p>personal-details works!</p>
+<section class="py-5">
+  <form [formGroup]="form">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="mb-2">
+          <label  for="firstName">First Name</label>
+          <input
+            type="text"
+            formControlName="firstName"
+            placeholder="Enter first name"
+            class="form-control auth-input"
+            id="firstName"
+          />
+          <small *ngIf="form.get('firstName')?.hasError('required') && form.get('firstName')?.touched" class="text-sm error-text">
+            This field is required
+          </small>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="mb-2">
+          <label  for="lastName">Last Name</label>
+          <input
+            type="text"
+            formControlName="lastName"
+            placeholder="Enter last name"
+            class="form-control auth-input"
+            id="lastName"
+          />
+          <small *ngIf="form.get('lastName')?.hasError('required') && form.get('lastName')?.touched" class="text-sm error-text">
+            This field is required
+          </small>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="mb-2">
+          <label  for="dateOfBirth">Date of Birth</label>
+          <input
+            type="date"
+            formControlName="dateOfBirth"
+            placeholder="Select date of birth"
+            class="form-control auth-input"
+            id="dateOfBirth"
+          />
+          <small *ngIf="form.get('dateOfBirth')?.hasError('required') && form.get('dateOfBirth')?.touched" class="text-sm error-text">
+            This field is required
+          </small>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="mb-2">
+          <label  for="phoneNumber">Phone Number</label>
+          <input
+            type="text"
+            formControlName="phoneNumber"
+            placeholder="Enter phone number"
+            class="form-control auth-input"
+            id="phoneNumber"
+          />
+          <small *ngIf="form.get('phoneNumber')?.hasError('required') && form.get('phoneNumber')?.touched" class="text-sm error-text">
+            This field is required
+          </small>
+          <small *ngIf="form.get('phoneNumber')?.hasError('pattern') && form.get('phoneNumber')?.touched" class="text-sm error-text">
+            Please enter a valid phone number
+          </small>
+        </div>
+      </div>
+    </div>
+     <div class="navigation-buttons">
+        <button  class="btn btn-secondary" (click)="PreviousStep()">Previous</button>
+  <button  class="btn btn-primary" (click)="NextStep()">Next</button>
+    </div>
+  </form>
+</section>
