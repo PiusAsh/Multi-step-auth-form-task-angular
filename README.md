@@ -49,15 +49,22 @@ Review: Displays a summary of all entered information for review before submissi
 ## Development Approach
 Step-by-Step Navigation:
 Each step is a separate route managed by Angular Router.
+
 Navigation between steps is tracked using the AuthLayoutComponent, which listens to NavigationEnd events to update the current step dynamically.
+
 Form Data Management:
 Centralized State Management: The FormStateService is used to store and manage form data. It uses BehaviorSubject to ensure real-time updates.
+
 Local Storage: Data is cached in local storage to persist user inputs across browser refreshes.
+
 Validation:
 Reactive Forms: Each step uses Angular's reactive forms to handle input and validation.
+
 Dynamic Errors: Validation errors are displayed dynamically using Bootstrap-styled error messages.
+
 Responsive Design:
 Bootstrap Framework: Ensures the form is fully responsive across all devices.
+
 Custom Animations: Smooth transitions and effects are implemented using CSS animations to enhance the user experience.
 
 Success Feedback:
