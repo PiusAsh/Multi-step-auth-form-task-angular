@@ -20,10 +20,10 @@ export class PersonalDetailsComponent implements OnInit {
     this.form = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      dateOfBirth: ['', Validators.required],
+      dateOfBirth: [''],
       phoneNumber: [
         '',
-        [Validators.required, Validators.pattern(/^[+]?[0-9]{10,14}$/)],
+        [, Validators.pattern(/^[+]?[0-9]{10,14}$/)],
       ],
     });
   }
